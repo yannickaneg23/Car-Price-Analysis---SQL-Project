@@ -102,17 +102,28 @@ The secondary automotive market in India features significant price variance dri
 
 ## 5. Data Workflow
 
-<!--### Data Lineage & Workflow
-[Data Source(s)]
-      ↓
-[Ingestion / Collection Method]
-      ↓
-[Cleaning & Transformation]
-      ↓
-[Analysis / Modelling / Querying]
-      ↓
-[Output / Visualisation / Reporting]
-```
+<!### Data Architecture & Schema Diagram
+
+Because this project processes a single flat dataset (`cars_raw`), the schema consists of an entity table featuring a primary surrogate key along with engineered features derived during the data cleaning and analytics phases.
+
+```mermaid
+erDiagram
+    CARS_RAW {
+        int car_id PK
+        string name
+        int year
+        decimal selling_price
+        int km_driven
+        string fuel
+        string seller_type
+        string transmission
+        string owner
+        decimal mileage
+        int engine
+        decimal max_power
+        decimal torque
+        int seats
+    }
 ### Data Source & Lineage
 
 1. **Source:** Kaggle / Indian Used Car Market Dataset (`car_data.csv`). The raw dataset contains 6,643 rows and 14 columns delivered as a flat CSV file containing mixed alphanumeric fields (e.g., `"17.8 kmpl"`, `"1248 CC"`, `"88.5 bhp"`).
