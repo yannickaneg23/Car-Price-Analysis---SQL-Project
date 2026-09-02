@@ -3,70 +3,81 @@
 # PURPOSE: Machine-readable project metadata only.
 # This file contains NO narrative, NO insights, NO analysis.
 # It exists for indexing, automation, and portfolio cataloging.
-# ============================================================
+# ===========================================================
 
 project:
-  name: "[Project Title]"
-  slug: "[project-title-lowercase-hyphenated]"   # Used for folder names, URLs
+  name: "Car Price Analysis - SQL Portfolio Project"
+  slug: "car-price-analysis"                      # Used for folder names, URLs
   version: "1.0.0"
   status: "completed"                             # Options: in-progress | completed | archived
-  last_updated: "YYYY-MM-DD"
+  last_updated: "2026-05-02"
 
 author:
-  name: "[Your Full Name]"
-  role: "[Your Role or Title]"
-  github: "[github_username]"
-  linkedin: "[linkedin_profile_url]"
-  email: "[optional]"
+  name: "ANEG YANNICK"
+  role: "Data Analyst"
+  github: "yannickaneg23"
+  linkedin: https://www.linkedin.com/in/aneg-yannick-19692a432/"
+  email: "yannickaneg23@gmail.com"
 
 project_type:
-  primary: "[e.g., exploratory-analysis]"        # See taxonomy below
+  primary: "sql-analysis"                        # See taxonomy below
   secondary:
-    - "[e.g., dashboard]"
-    - "[e.g., data-pipeline]"
+    - "exploratory-analysis"
+    - "data-cleaning"
 
 # PROJECT TYPE TAXONOMY (pick what applies):
 # exploratory-analysis | sql-analysis | dashboard | data-pipeline
 # predictive-model | data-cleaning | reporting | visualization
 # end-to-end | automation | other
 
-domain: "[e.g., finance / healthcare / marketing / operations / education / other]"
+domain: "automotive / secondary market retail"
 
 tools:
   languages:
-    - "[e.g., Python 3.11]"
-    - "[e.g., SQL]"
-  libraries:
-    - "[e.g., pandas 2.0]"
-    - "[e.g., matplotlib 3.7]"
+    - "SQL (MySQL 8.0)"
+  libraries: []
   platforms:
-    - "[e.g., GitHub]"
-    - "[e.g., Google Colab]"
+    - "MySQL Workbench"
+    - "GitHub"
   visualization:
-    - "[e.g., Power BI]"
-    - "[e.g., Tableau]"
-    - "[e.g., Plotly]"
+    - "Mermaid.js"
+    - "Markdown Tables"
 
 data:
   sources:
-    - name: "[Source name]"
-      type: "[csv / api / database / web-scrape / manual / public-dataset]"
-      access: "[public / private / simulated / anonymized]"
-  row_count_approx: "[e.g., 50000]"
+    - name: "Indian Used Car Market Dataset (Kaggle)"
+      type: "public-dataset"
+      access: "public"
+  row_count_approx: "6643"
   date_range:
-    start: "YYYY-MM-DD"
-    end: "YYYY-MM-DD"
+    start: "1983-01-01"
+    end: "2020-12-31"
 
 outputs:
-  - type: "[notebook / dashboard / report / csv / script / slides]"
-    path: "[relative/path/to/output]"
-    description: "[One-line description]"
+  - type: "script"
+    path: "sql/01_data_cleaning.sql"
+    description: "Regex extraction and schema data type conversions"
+  - type: "script"
+    path: "sql/02_exploratory_analysis.sql"
+    description: "Categorical price aggregations and usage binning queries"
+  - type: "script"
+    path: "sql/03_insights.sql"
+    description: "Value efficiency metrics and comparative fuel trends"
+  - type: "report"
+    path: "results/findings.md"
+    description: "Executive report detailing core business takeaways"
+  - type: "report"
+    path: "README.md"
+    description: "Master project overview and setup documentation"
 
 dependencies:
-  file: "[requirements.txt / environment.yml / packages.R / none]"
-  notes: "[Any setup instructions or environment caveats]"
+  file: "none"
+  notes: "Requires MySQL Server 8.0+ instance and table data import access"
 
 tags:
-  - "[keyword-1]"
-  - "[keyword-2]"
-  - "[keyword-3]"
+  - "mysql"
+  - "sql-portfolio"
+  - "data-cleaning"
+  - "regex"
+  - "exploratory-data-analysis"
+  - "retail-analytics"
