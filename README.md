@@ -184,11 +184,6 @@ Primary dataset containing vehicle specs, pricing, ownership, and technical attr
 - **Brand Extraction (`brand`):** Extracted first word from the `name` column to aggregate vehicle listings by vehicle manufacturer (e.g., Maruti, Hyundai, Honda, BMW).
 - **Usage Tier (`km_range`):** Categorical buckets created via `CASE` logic (`Under 50K km`, `50K-100K km`, `100K-150K km`, `Over 150K km`) to model price degradation over mileage intervals.
 -->
-
-
-
-
-
 ---
 
 ## 7. ERD - Entity Relationship Diagram
@@ -326,14 +321,11 @@ Low,Implement Non-Linear Valuation Steeps for Multi-Owner Cars: Adjust automated
 - [ ] **Automate Ingestion & Cleaning via Orchestration Pipelines:** Replace manual MySQL Workbench imports with a Python/SQL ETL pipeline (e.g., using `SQLAlchemy` or `dbt`) to automatically ingest, clean, and validate new batch CSV exports.
 - [ ] **Build a Predictive Pricing Model:** Train a supervised regression model (e.g., Random Forest or XGBoost) on the cleaned SQL dataset to predict expected car listing prices and flag statistically underpriced vehicles in real time.
 ---
-
-
-
 ---
 
 ## 14. Author
 
-**[ANEG YANNICK]**
+**[ANEG YANNICK]*
 
 - 🔗 (https://www.linkedin.com/in/aneg-yannick-19692a432/)]
 -
