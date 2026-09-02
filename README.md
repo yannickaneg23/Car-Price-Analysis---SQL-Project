@@ -163,7 +163,7 @@ Primary dataset containing vehicle specs, pricing, ownership, and technical attr
 - **Usage Tier (`km_range`):** Categorical buckets created via `CASE` logic (`Under 50K km`, `50K-100K km`, `100K-150K km`, `Over 150K km`) to model price degradation over mileage intervals.
 -->
 
-### Dataset / Table: `[name]`
+
 
 
 
