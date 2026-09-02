@@ -102,8 +102,7 @@ The secondary automotive market in India features significant price variance dri
 
 ## 5. Data Workflow
 
-<!### Data Architecture & Schema Diagram
-### Data Architecture & Schema Diagram
+<### Data Architecture & Schema Diagram
 
 Because this project processes a single flat dataset (`cars_raw`), the schema consists of an entity table featuring a primary surrogate key along with engineered features derived during the data cleaning and analytics phases.
 
@@ -125,11 +124,17 @@ erDiagram
         decimal torque
         int seats
     }
+```
 
-Attribute Class,Columns,Operations / Transformations
-Primary Entity,cars_raw,"Single flat file representing raw vehicle listings (6,643 initial records)."
-Numeric Transformations,"mileage, engine, max_power, torque","Numeric extraction via Regex parsing (REGEXP_SUBSTR), converted from text (VARCHAR) to typed numeric attributes (DECIMAL, INT)."
-Derived Features,"brand, price_per_km, km_range","String manipulation (SUBSTRING_INDEX), ratio feature engineering (selling_price / km_driven), and usage binning via conditional CASE logic."
+---
+
+### Schema Summary & Feature Engineering
+
+| Attribute Class | Columns | Operations / Transformations |
+| :--- | :--- | :--- |
+| **Primary Entity** | `cars_raw` | Single flat file representing raw vehicle listings (`6,643` initial records). |
+| **Numeric Transformations** | `mileage`, `engine`, `max_power`, `torque` | Numeric extraction via Regex parsing (`REGEXP_SUBSTR`), converted from text (`VARCHAR`) to typed numeric attributes (`DECIMAL`, `INT`). |
+| **Derived Features** | `brand`, `price_per_km`, `km_range` | String manipulation (`SUBSTRING_INDEX`), ratio feature engineering (`selling_price / km_driven`), and usage binning via conditional `CASE` logic. |
 ### Data Source & Lineage
 
 1. **Source:** Kaggle / Indian Used Car Market Dataset (`car_data.csv`). The raw dataset contains 6,643 rows and 14 columns delivered as a flat CSV file containing mixed alphanumeric fields (e.g., `"17.8 kmpl"`, `"1248 CC"`, `"88.5 bhp"`).
