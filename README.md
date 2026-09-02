@@ -14,19 +14,20 @@
 - [ ] Data Pipeline / ETL
 - [ ] Predictive Modelling / Machine Learning
 ## Table of Contents
-1. [Project Overview](#1-project-overview)
-2. [Objectives](#2-objectives)
-3. [Project Scope & Tools](#3-project-scope--tools)
-4. [Repository Structure](#4-repository-structure)
-5. [Data Workflow](#5-data-workflow)
-6. [Data Model & Schema](#6-data-model--schema)
-7. [ERD - Entity Relationship Diagram](#7-erd--entity-relationship-diagram) *(SQL projects)*
-8. [Analysis & Metrics](#8-analysis--metrics)
-9. [Key Insights](#9-key-insights)
-10. [Recommendations](#10-recommendations)
-11. [Assumptions & Limitations](#11-assumptions--limitations)
-12. [Future Enhancements](#12-future-enhancements)
-14. [Author](#14-author)
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Objectives](#objectives)
+- [Project Scope & Tools](#project-scope--tools)
+- [Repository Structure](#repository-structure)
+- [Data Workflow](#data-workflow)
+- [Data Model & Schema](#data-model--schema)
+- [ERD — Entity Relationship Diagram](#erd--entity-relationship-diagram)
+- [Analysis & Metrics](#analysis--metrics)
+- [Key Insights](#key-insights)
+- [Recommendations](#recommendations)
+- [Assumptions & Limitations](#assumptions--limitations)
+- [Future Enhancements](#future-enhancements)
+- [Author](#author)
 
 ---
 
@@ -221,9 +222,12 @@ erDiagram
 | **Numeric Transformations** | `mileage`, `engine`, `max_power`, `torque` | Numeric extraction via Regex parsing (`REGEXP_SUBSTR`), converted from text (`VARCHAR`) to typed numeric attributes (`DECIMAL`, `INT`). |
 | **Derived Features** | `brand`, `price_per_km`, `km_range` | String manipulation (`SUBSTRING_INDEX`), ratio feature engineering (`selling_price / km_driven`), and usage binning via conditional `CASE` logic. |
 
+---
+
+
 ## 8. Analysis & Metrics
 
-<!--
+
 Defining explicit business metrics prior to evaluation ensures that analytical conclusions directly map to operational decisions. Below are the core metrics engineered and analyzed in this project:1. Resale Market Value (selling_price)Plain-Language Definition: The final listing/selling price of a used vehicle expressed in Indian Rupees (₹).Scope & Grain: Calculated as individual values and group averages (AVG), medians, and ranges across categorical dimensions (fuel type, transmission, seller type, ownership tier).Why It Matters: Serves as the primary dependent variable. Evaluating average and range differentials establishes baseline valuations and identifies premium drivers across market segments.2. Usage Intensity & Depreciation Tier (km_driven)Plain-Language Definition: The total cumulative distance driven by a vehicle in kilometers, segmented into four operational usage tiers (Under 50K km, 50K–100K km, 100K–150K km, and Over 150K km).Scope & Grain: Grouped categorical aggregation using conditional range logic (CASE).Why It Matters: Measures mechanical wear-and-tear expectations. Bucketing mileage quantifies non-linear price decay curves over vehicle usage lifespans.3. Distance Value Efficiency (price_per_km)Plain-Language Definition: The ratio of a vehicle’s listing price to its total accumulated mileage, representing the cost per kilometer driven.Scope & Grain: Calculated per vehicle record (selling_price / km_driven).Why It Matters: Standardizes price against vehicle usage to uncover relative bargains—flagging low-mileage vehicles listing below expected segment valuations.4. Fuel-Type Price SpreadPlain-Language Definition: The absolute and percentage difference in average selling price between diesel-fueled vehicles and petrol-fueled vehicles within identical production years (year).Scope & Grain: Annual average price aggregation pivoted across fuel categories.Why It Matters: Evaluates fuel economy and engine durability market preferences over time, isolating whether fuel type premiums remain consistent as vehicles age.Metrics Summary MatrixMetric NameMeasurement GrainPrimary Business PurposeAverage Selling PriceCategorical SegmentEstablishes base market valuation across fuel, transmission, and seller typesMileage BucketBinned Range (50K km intervals)Measures price depreciation relative to vehicle utilizationPrice per KilometerVehicle Listing LevelIdentifies high-value, under-priced vehicle listingsFuel Price PremiumAnnual Segment LevelTracks shifting buyer preference between diesel and petrol engines across vehicle age
 
 ### Analytical Approach
@@ -258,7 +262,7 @@ Fuel Price Premium,The year-over-year average price differential between diesel 
 
 -
 ### Analytical Techniques & Methods
-
+---
 - [x] **Descriptive Statistics:** Summary metrics (`AVG`, `MIN`, `MAX`, `COUNT`) to measure price distribution and central tendency across core vehicle attributes.
 - [x] **Segmentation & Group Comparison:** Categorical price analysis across key dimensions (`fuel`, `transmission`, `seller_type`, `owner`).
 - [x] **Binned Usage Analysis:** Segmentation of accumulated mileage (`km_driven`) into usage tiers using conditional `CASE` logic to evaluate non-linear price decay.
@@ -269,7 +273,7 @@ Fuel Price Premium,The year-over-year average price differential between diesel 
 
 ## 9. Key Insights
 
-<!--
+
   ### Key Insights & Business Implications
 
 **Insight 1: Transmission Premium Commands a Luxury Multiplier**
@@ -283,20 +287,22 @@ Diesel cars sell at a **67% higher average price** than petrol equivalents (**�
 
 **Insight 4: Depreciation Steepens Materially Beyond the First Owner**
 Resale price drops sharply after the first ownership transition, declining by **₹100K–200K** per additional owner. First-owner vehicles retain maximum market liquidity and demand, while multi-owner listings experience extended inventory turn times. Valuation algorithms and pricing tools should apply non-linear depreciation discounts once a car crosses into second- or third-ownership status.
-
+---
 
 ## 10. Recommendations
 
-<Priority,Recommendation,Based On,Suggested Owner
+Priority,Recommendation,Based On,Suggested Owner
 High,Create Dedicated Premium Packages for Automatic Vehicles: Package automatic inventory with targeted financing terms and extended warranty options to capture buyer willingness to pay at the ~₹1.32M price tier.,Insight 1: Automatic Transmission Premium (~3x higher average price),Sales & Dealership Operations
 High,"Institute Certified Inspection Packages for Private Sellers: Develop a value-added ""Inspection & Warranty Certification"" product that individual sellers can purchase to validate vehicle condition, bridging the ~₹450K dealer-versus-private price gap.",Insight 2: Dealer Markup vs. Private Listing Price Gap,Product / Business Development
 Medium,"Optimize Procurement Rates for Used Diesel Vehicles: Target second-hand diesel inventory with full service histories, pricing them confidently above petrol equivalents due to strong capital retention as vehicle age increases.",Insight 3: Diesel Capital Value Retention,Inventory Acquisition / Buying Team
 Low,Implement Non-Linear Valuation Steeps for Multi-Owner Cars: Adjust automated trade-in valuation models to apply steeper pricing discounts on 2nd- and 3rd-owner vehicles to improve turn-around time and prevent margin compression.,Insight 4: Multi-Owner Price Depreciation Curve,Pricing & Analytics Team
 
+---
+
 
 ## 11. Assumptions & Limitations
 
-<!### Assumptions & Limitations
+### Assumptions & Limitations
 
 ### Assumptions
 - **Uniform Regional Currency Baseline:** All listed selling prices (`selling_price`) are assumed to be recorded in Indian Rupees (₹) and reflect nominal transaction values without regional adjustments or historical inflation indexing.
@@ -310,10 +316,12 @@ Low,Implement Non-Linear Valuation Steeps for Multi-Owner Cars: Adjust automated
 - **Unmeasured Technical Features:** Important pricing variables such as safety ratings, infotainment upgrades, tire condition, and insurance coverage status were absent from the primary dataset.
 
 > *The goal here is pre-emptive Q&A. A thoughtful reviewer will look for these boundaries—documenting them up front demonstrates analytical rigor and business maturity.*
+> 
+---
 
 ## 12. Future Enhancements
 
-<!--
+
   ### Next Steps & Future Enhancements
 
 - [ ] **Incorporate Regional & Location-Based Granularity:** Join state-level or city-level location data into the dataset to account for regional price variations, local fuel tax differentials, and urban vs. rural vehicle demand.
@@ -330,8 +338,6 @@ Low,Implement Non-Linear Valuation Steeps for Multi-Owner Cars: Adjust automated
 - 🔗 (https://www.linkedin.com/in/aneg-yannick-19692a432/)]
 -
 - 📧 yannickaneg23@gmail.com]
-
----
 
 *Last updated: [may 2026]*
 
