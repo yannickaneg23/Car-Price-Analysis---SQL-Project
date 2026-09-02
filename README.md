@@ -200,26 +200,31 @@ Because this project processes a single flat dataset (`cars_raw`), the schema co
 erDiagram
     CARS_RAW {
         int car_id PK
-        string name "Full Make & Model"
-        int year "Manufacturing Year"
-        decimal selling_price "Resale Price (INR)"
-        int km_driven "Distance Driven"
-        string fuel "Fuel Type"
-        string seller_type "Sales Channel"
-        string transmission "Manual / Automatic"
-        string owner "Ownership Tier"
-        decimal mileage "Fuel Efficiency"
-        int engine "Displacement (CC)"
-        decimal max_power "Horsepower (bhp)"
-        decimal torque "Engine Torque"
-        int seats "Seating Capacity"
+        string name
+        int year
+        decimal selling_price
+        int km_driven
+        string fuel
+        string seller_type
+        string transmission
+        string owner
+        decimal mileage
+        int engine
+        decimal max_power
+        decimal torque
+        int seats
     }
-Attribute Class,Columns,Operations / Transformations
-Primary Entity,cars_raw,"Single flat file representing raw vehicle listings (6,643 initial records)."
-Numeric Transformations,"mileage, engine, max_power, torque","Numeric extraction via Regex parsing (REGEXP_SUBSTR), converted from text (VARCHAR) to typed numeric attributes (DECIMAL, INT)."
-Derived Features,"brand, price_per_km, km_range","String manipulation (SUBSTRING_INDEX), ratio feature engineering (selling_price / km_driven), and usage binning via conditional CASE logic."
+```
 
 ---
+
+### Schema Summary & Feature Engineering
+
+| Attribute Class | Columns | Operations / Transformations |
+| :--- | :--- | :--- |
+| **Primary Entity** | `cars_raw` | Single flat file representing raw vehicle listings (`6,643` initial records). |
+| **Numeric Transformations** | `mileage`, `engine`, `max_power`, `torque` | Numeric extraction via Regex parsing (`REGEXP_SUBSTR`), converted from text (`VARCHAR`) to typed numeric attributes (`DECIMAL`, `INT`). |
+| **Derived Features** | `brand`, `price_per_km`, `km_range` | String manipulation (`SUBSTRING_INDEX`), ratio feature engineering (`selling_price / km_driven`), and usage binning via conditional `CASE` logic. |
 
 ## 8. Analysis & Metrics
 
