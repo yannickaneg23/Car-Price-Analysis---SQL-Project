@@ -336,7 +336,7 @@ Low,Implement Non-Linear Valuation Steeps for Multi-Owner Cars: Adjust automated
 **[ANEG YANNICK]**
 
 - 🔗 (https://www.linkedin.com/in/aneg-yannick-19692a432/)]
-- 💼
+-
 - 📧 yannickaneg23@gmail.com]
 
 ---
